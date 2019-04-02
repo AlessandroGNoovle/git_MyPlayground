@@ -1,0 +1,60 @@
+<apex:page standardController="Account" extensions="myControllerExtension3">
+    
+    <apex:form >
+        <apex:pageBlock >        
+            <apex:pageBlockButtons >      
+                <apex:commandButton id="editBTN" value="Edit" action="{!editAccount}" rendered="{!!EditMode}"/>  
+                <apex:commandButton id="saveBTN" value="Save" action="{!save}" rendered="{!EditMode}"/>  
+            </apex:pageBlockButtons> 
+            
+            <apex:pageBlockSection title="Account detail" rendered="{!!editMode}">
+                <apex:outputField value="{!Account.Name}" />
+                <apex:outputField value="{!Account.AccountNumber}" />
+                <apex:outputField value="{!Account.Type}" />
+                <apex:outputField value="{!Account.Phone}" />
+                <apex:outputField value="{!Account.Site}" />
+                <apex:outputField value="{!Account.Rating}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Account detail" rendered="{!editMode}">
+                <apex:inputField value="{!Account.Name}" />
+                <apex:inputField value="{!Account.AccountNumber}" />
+                <apex:inputField value="{!Account.Type}" />
+                <apex:inputField value="{!Account.Phone}" />
+                <apex:inputField value="{!Account.Site}" />
+                <apex:inputField value="{!Account.Rating}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Account system info">
+                <apex:outputField value="{!Account.OwnerId}" />
+                <apex:outputField value="{!Account.LastModifiedBy.Name}" />
+                <apex:outputField value="{!Account.CreatedBy.Name}" />
+                <apex:outputField value="{!Account.CreatedDate}" />                    
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Case Related List" columns="1">
+                <apex:repeat value="{!myCaseList}" var="myCases">              
+                    <tr>
+                        <td>{!myCases.CaseNumber}</td>
+                        <td>{!myCases.Subject}</td> 
+                        <td>{!myCases.Owner.Name}</td>
+                        <td>{!myCases.CreatedDate}</td>
+    				</tr>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Opportunity Related List" columns="1">
+                <apex:pageBlockTable value="{!myOpportunityList}" var="myOpps">
+    
+                    <apex:column value="{!myOpps.Name}"/>
+                    <apex:column value="{!myOpps.StageName}"/>
+                    <apex:column value="{!myOpps.Amount}"/>
+                    <apex:column value="{!myOpps.CloseDate}"/>
+    
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

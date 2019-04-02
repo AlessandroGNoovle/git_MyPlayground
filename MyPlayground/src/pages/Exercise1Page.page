@@ -1,0 +1,4 @@
+<apex:page sidebar="false" tabStyle="Case">
+    <apex:sectionHeader title="This is my first VF page" /> 
+    <apex:enhancedList type="Case" height="300"/>    
+</apex:page>

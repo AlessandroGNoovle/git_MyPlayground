@@ -1,0 +1,7 @@
+<aura:component >
+	
+    <c:helloHeading />
+    
+    <p>Lightning</p>
+    
+</aura:component>

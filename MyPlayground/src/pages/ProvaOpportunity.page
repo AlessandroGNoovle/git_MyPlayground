@@ -1,0 +1,26 @@
+<apex:page standardController="Opportunity" recordSetVar="opportunities" showHeader="true" sidebar="false">
+<apex:pagemessages />
+    
+<!-- extensions="NewOppStdCtrl" -->
+
+    <apex:form id="myForm">
+        <apex:sectionHeader title="Opportunity Edit" subtitle="New Opportunity" />    
+        <apex:pageBlock id="pgBlock" mode="edit" title="Opportunity Edit">
+            <apex:pageBlockButtons location="both">
+                <apex:commandButton value="Save" action="{!Save}"/>
+                <!-- bottone per Save & New -->
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+        <apex:pageBlockSection id="pgBlockSectionAcctInfo" title="Opportunity Information" collapsible="false" columns="2" >
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Opportunity Name</apex:outputLabel>
+                <apex:inputField id="optName" value="{!opportunity.name}"/>
+            </apex:pageBlockSectionItem> 
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel >Amount</apex:outputLabel>
+                <apex:inputField id="oppAmount" value="{!opportunity.Amount}" />
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

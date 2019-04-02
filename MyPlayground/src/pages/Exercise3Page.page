@@ -1,0 +1,32 @@
+<apex:page standardController="Case" extensions="myControllerExtension">
+   
+    <apex:form >
+        <apex:pageBlock >        
+            <apex:pageBlockButtons >      
+                <apex:commandButton id="saveBTN" value="Save" action="{!save}" />           
+            </apex:pageBlockButtons> 
+            
+            <apex:pageBlockSection title="Case Detail">
+                <apex:inputField value="{!Case.CaseNumber}" />
+                <apex:inputField value="{!Case.Subject}" />
+                <apex:inputField value="{!Case.Status}" />
+                <apex:inputField value="{!Case.Priority}" />
+                <apex:inputField value="{!Case.Type}" />
+                <apex:inputField value="{!Case.Origin}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Case system info">
+                <apex:outputField value="{!Case.OwnerId}" />
+                <apex:outputField value="{!Case.LastModifiedDate}" />
+                <apex:outputField value="{!Case.CreatedDate}" />
+                <apex:outputField value="{!Case.ClosedDate}" />                    
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection title="Case Comments">
+            	<apex:outputField value="{!comment.CommentBody}" />  
+                <apex:outputField value="{!comment.CreatedById}" />                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

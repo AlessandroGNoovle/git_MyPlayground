@@ -1,0 +1,38 @@
+<apex:page standardController="Account" extensions="myControllerExtension1">
+    
+    <apex:form >
+        <apex:pageBlock >        
+            <apex:pageBlockButtons >      
+                <apex:commandButton value="Edit" action="{!editAccount}" rendered="{!!editMode}"/>  
+                <apex:commandButton value="Save" action="{!save}" rendered="{!editMode}"/>  
+            </apex:pageBlockButtons> 
+            
+            <apex:pageBlockSection title="Account detail" rendered="{!!editMode}">
+                <apex:outputField value="{!Account.Name}" />
+                <apex:outputField value="{!Account.AccountNumber}" />
+                <apex:outputField value="{!Account.Type}" />
+                <apex:outputField value="{!Account.Phone}" />
+                <apex:outputField value="{!Account.Site}" />
+                <apex:outputField value="{!Account.Rating}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Account detail" rendered="{!editMode}">
+                <apex:inputField value="{!Account.Name}" />
+                <apex:inputField value="{!Account.AccountNumber}" />
+                <apex:inputField value="{!Account.Type}" />
+                <apex:inputField value="{!Account.Phone}" />
+                <apex:inputField value="{!Account.Site}" />
+                <apex:inputField value="{!Account.Rating}" />
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Account system info">
+                <apex:outputField value="{!Account.OwnerId}" />
+                <apex:outputField value="{!Account.LastModifiedBy.Name}" />
+                <apex:outputField value="{!Account.CreatedBy.Name}" />
+                <apex:outputField value="{!Account.CreatedDate}" />                    
+            </apex:pageBlockSection> 
+            
+        </apex:pageBlock>
+    </apex:form>
+   
+</apex:page>
